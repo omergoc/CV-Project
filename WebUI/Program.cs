@@ -1,3 +1,8 @@
+﻿using Business.Absttract;
+using Business.Concrete;
+using DataAccess.Concrete.EntityFramework;
+using Microsoft.EntityFrameworkCore;
+
 namespace WebUI;
 
 public class Program
@@ -8,6 +13,16 @@ public class Program
 
         // Add services to the container.
         builder.Services.AddControllersWithViews();
+
+        builder.Services.AddDbContext<CvDbContext>(options =>
+        options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+        builder.Services.AddScoped<IPersonService, PersonService>();
+        builder.Services.AddScoped<IBlogService, BlogService>();
+        builder.Services.AddScoped<IProjectService, ProjectService>();
+        builder.Services.AddScoped<ISkillService, SkillService>();
+        builder.Services.AddScoped<IExperienceService, ExperienceService>();
+
 
         var app = builder.Build();
 
@@ -23,6 +38,7 @@ public class Program
         app.UseStaticFiles();
 
         app.UseRouting();
+        app.UseAuthentication();
 
         app.UseAuthorization();
 
