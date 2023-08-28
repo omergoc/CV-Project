@@ -9,11 +9,10 @@ namespace Business.Absttract
 {
     public interface ISkillService
     {
-        IEnumerable<Skill> GetAllSkills();
-        Skill GetSkillById(int id);
-        void AddSkill(Skill skill);
-        void UpdateSkill(Skill skill);
-        void DeleteSkill(int id);
-        // Diğer özel iş metotları
+        Task<IEnumerable<Skill>> GetAllSkillsAsync();
+        Task<Skill> GetSkillByIdAsync(int id);
+        Task AddSkillAsync(Skill skill);
+        Task UpdateSkillAsync(Skill skill);
+        Task DeleteSkillAsync(int id);
     }
 }

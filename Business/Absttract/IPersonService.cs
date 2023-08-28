@@ -9,11 +9,10 @@ namespace Business.Absttract
 {
     public interface IPersonService
     {
-        IEnumerable<Person> GetAllPersons();
-        Person GetPersonById(int id);
-        void AddPerson(Person person);
-        void UpdatePerson(Person person);
-        void DeletePerson(int id);
-        // Diğer özel iş metotları
+        Task<IEnumerable<Person>> GetAllPersonsAsync();
+        Task<Person> GetPersonByIdAsync(int id);
+        Task AddPersonAsync(Person person);
+        Task UpdatePersonAsync(Person person);
+        Task DeletePersonAsync(int id);
     }
 }

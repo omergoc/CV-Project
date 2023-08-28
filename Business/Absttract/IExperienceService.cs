@@ -9,11 +9,10 @@ namespace Business.Absttract
 {
     public interface IExperienceService
     {
-        IEnumerable<Experience> GetAllExperiences();
-        Experience GetBExperienceById(int id);
-        void AddExperience(Experience experience);
-        void UpdateExperience(Experience experience);
-        void DeleteExperience(int id);
-        // Diğer özel iş metotları
+        Task<IEnumerable<Experience>> GetAllExperiencesAsync();
+        Task<Experience> GetBExperienceByIdAsync(int id);
+        Task AddExperienceAsync(Experience experience);
+        Task UpdateExperienceAsync(Experience experience);
+        Task DeleteExperienceAsync(int id);
     }
 }

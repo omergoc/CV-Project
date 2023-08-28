@@ -8,11 +8,12 @@ namespace DataAccess.Abstract
 {
     public interface IRepository<TEntity> where TEntity : class
     {
-        IEnumerable<TEntity> GetAll();
-        TEntity GetById(object id);
-        void Insert(TEntity entity);
-        void Update(TEntity entity);
-        void Delete(object id);
+        Task<IEnumerable<TEntity>> GetAllAsync();
+        Task<TEntity> GetByIdAsync(int id);
+        Task InsertAsync(TEntity entity);
+        Task UpdateAsync(TEntity entity);
+        Task DeleteAsync(int id);
+
     }
 
 }

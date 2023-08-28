@@ -18,29 +18,29 @@ namespace Business.Concrete
             _projectRepository = projectRepository;
         }
 
-        public IEnumerable<Project> GetAllProjects()
+        public async Task<IEnumerable<Project>> GetAllProjectsAsync()
         {
-            return _projectRepository.GetAll();
+            return await _projectRepository.GetAllAsync();
         }
 
-        public Project GetProjectById(int id)
+        public async Task<Project> GetProjectByIdAsync(int id)
         {
-            return _projectRepository.GetById(id);
+            return await _projectRepository.GetByIdAsync(id);
         }
 
-        public void AddProject(Project project)
+        public async Task AddProjectAsync(Project project)
         {
-            _projectRepository.Insert(project);
+            await _projectRepository.InsertAsync(project);
         }
 
-        public void UpdateProject(Project project)
+        public async Task UpdateProjectAsync(Project project)
         {
-            _projectRepository.Update(project);
+            await _projectRepository.UpdateAsync(project);
         }
 
-        public void DeleteProject(int id)
+        public async Task DeleteProjectAsync(int id)
         {
-            _projectRepository.Delete(id);
+            await _projectRepository.DeleteAsync(id);
         }
     }
 }

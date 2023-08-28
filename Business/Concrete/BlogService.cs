@@ -18,29 +18,29 @@ namespace Business.Concrete
             _blogRepository = blogRepository;
         }
 
-        public IEnumerable<Blog> GetAllBlogs()
+        public async Task<IEnumerable<Blog>> GetAllBlogsAsync()
         {
-            return _blogRepository.GetAll();
+            return await _blogRepository.GetAllAsync();
         }
 
-        public Blog GetBlogById(int id)
+        public async Task<Blog> GetBlogByIdAsync(int id)
         {
-            return _blogRepository.GetById(id);
+            return await _blogRepository.GetByIdAsync(id);
         }
 
-        public void AddBlog(Blog blog)
+        public async Task AddBlogAsync(Blog blog)
         {
-            _blogRepository.Insert(blog);
+            await _blogRepository.InsertAsync(blog);
         }
 
-        public void UpdateBlog(Blog blog)
+        public async Task UpdateBlogAsync(Blog blog)
         {
-            _blogRepository.Update(blog);
+            await _blogRepository.UpdateAsync(blog);
         }
 
-        public void DeleteBlog(int id)
+        public async Task DeleteBlogAsync(int id)
         {
-            _blogRepository.Delete(id);
+            await _blogRepository.DeleteAsync(id);
         }
     }
 

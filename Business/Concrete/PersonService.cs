@@ -18,32 +18,29 @@ namespace Business.Concrete
             _personRepository = personRepository;
         }
 
-        public IEnumerable<Person> GetAllPersons()
+        public async Task<IEnumerable<Person>> GetAllPersonsAsync()
         {
-            return _personRepository.GetAll();
+            return await _personRepository.GetAllAsync();
         }
 
-        public Person GetPersonById(int id)
+        public async Task<Person> GetPersonByIdAsync(int id)
         {
-            return _personRepository.GetById(id);
+            return await _personRepository.GetByIdAsync(id);
         }
 
-        public void AddPerson(Person person)
+        public async Task AddPersonAsync(Person person)
         {
-            _personRepository.Insert(person);
+            await _personRepository.InsertAsync(person);
         }
 
-        public void UpdatePerson(Person person)
+        public async Task UpdatePersonAsync(Person person)
         {
-            _personRepository.Update(person);
+            await _personRepository.UpdateAsync(person);
         }
 
-        public void DeletePerson(int id)
+        public async Task DeletePersonAsync(int id)
         {
-            _personRepository.Delete(id);
+            await _personRepository.DeleteAsync(id);
         }
     }
-
-    // Aynı şekilde BlogService ve ProjectService için de gerçeklemeler yapılabilir.
-
 }

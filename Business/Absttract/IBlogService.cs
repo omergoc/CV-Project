@@ -9,11 +9,10 @@ namespace Business.Absttract
 {
     public interface IBlogService
     {
-        IEnumerable<Blog> GetAllBlogs();
-        Blog GetBlogById(int id);
-        void AddBlog(Blog blog);
-        void UpdateBlog(Blog blog);
-        void DeleteBlog(int id);
-        // Diğer özel iş metotları
+        Task<IEnumerable<Blog>> GetAllBlogsAsync();
+        Task<Blog> GetBlogByIdAsync(int id);
+        Task AddBlogAsync(Blog blog);
+        Task UpdateBlogAsync(Blog blog);
+        Task DeleteBlogAsync(int id);
     }
 }
